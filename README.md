@@ -44,6 +44,8 @@ DB_HOST = 'localhost'
 DB_NAME = 'saep_db'
 DB_PORT = '5432'
 ```
+## Relacionamento do banco de dados
+<img width="579" height="365" alt="modelo bd" src="https://github.com/user-attachments/assets/7adf9a05-5d79-4162-a1c0-4c46714b154d" />
 
 CREATE DATABASE saep_db;
 
@@ -52,7 +54,8 @@ CREATE DATABASE saep_db;
 CREATE TABLE login (
     id_login SERIAL PRIMARY KEY,
     email VARCHAR(100) NOT NULL,
-    senha VARCHAR(100) NOT NULL
+    senha VARCHAR(100) NOT NULL,
+	nome VARCHAR(100) NOT NULL
 );
 ```
 -- Tabela de Cliente
@@ -97,32 +100,27 @@ CREATE TABLE historico (
 ```
 ## Inserindo os dados nas tabelas
 ```
-insert into login(email, senha)
-values('usuario@teste.com', 'senai103@'),
-('administrador@teste.com', 'senai103@'),
-('cliente@teste.com', 'senai103@');
-
-insert into cliente(email, telefone, nome)
-values('cliente1@teste.com', '11912345678', 'Jorge'),
-('cliente2@teste.com', '11987654321', 'Patrício'),
-('cliente3@teste.com', '11911223344', 'Ana Carolina');
+insert into login(email, senha, nome)
+values('administrador1@teste.com', 'senai103@', 'Jorge),
+('administrador2@teste.com', 'senai103@', 'Cleber'),
+('administrador3@teste.com', 'senai103@', 'Maria');
 
 INSERT INTO produto (
-    id_produto, nome, preco_unit, quantidade, qtd_minima, qtd_maxima,
+    nome, preco_unit, quantidade, qtd_minima, qtd_maxima,
     tensao, dimensoes, resolucao, armazenamento, conectividade, tipo_produto
 ) VALUES
-(1, 'Smartphone Galaxy S24', 4999.90, 60, 10, 100, 'Bivolt', 6.8, '3200x1440', '256GB', 'Wi-Fi, 5G, Bluetooth', 'smartphone'),
-(11, 'Smart TV LG OLED 55', 6999.00, 23, 5, 40, '110/220v', 55, '3840x2160 (4K)', NULL, 'Wi-Fi, HDMI, Bluetooth', 'smart TV'),
-(12, 'poco x7', 300.00, 3, 10, 30, '110/220v', 6.5, '1920x1080', '512GB', 'Wi-Fi, HDMI, Bluetooth', 'smartphone'),
-(2, 'Notebook Dell XPS 13', 8999.00, 25, 5, 60, 'Bivolt', 13.3, '1920x1080', '512GB SSD', 'Wi-Fi, Bluetooth', 'notebook');
+( 'Smartphone Galaxy S24', 4999.90, 60, 10, 100, 'Bivolt', 6.8, '3200x1440', '256GB', 'Wi-Fi, 5G, Bluetooth', 'smartphone'),
+( 'Smart TV LG OLED 55', 6999.00, 23, 5, 40, '110/220v', 55, '3840x2160 (4K)', NULL, 'Wi-Fi, HDMI, Bluetooth', 'smart TV'),
+( 'poco x7', 300.00, 3, 10, 30, '110/220v', 6.5, '1920x1080', '512GB', 'Wi-Fi, HDMI, Bluetooth', 'smartphone'),
+( 'Notebook Dell XPS 13', 8999.00, 25, 5, 60, 'Bivolt', 13.3, '1920x1080', '512GB SSD', 'Wi-Fi, Bluetooth', 'notebook');
 
 
 INSERT INTO historico (
-    id_historico, fk_produto, tipo_movimentacao, qtd_movimentada, custo_total, fk_usuario, data_movimentacao
+     fk_produto, tipo_movimentacao, qtd_movimentada, custo_total, fk_usuario, data_movimentacao
 ) VALUES
-(1, 1, 'entrada', 10, 49999.00, 1, '2025-11-06'),
-(2, 2, 'saida', 5, 44995.00, 1, '2025-11-06'),
-(3, 11, 'entrada', 3, 20997.00, 1, '2025-11-06');
+(1, 'entrada', 10, 49999.00, 1, '2025-11-06'),
+(2, 'saida', 5, 44995.00, 1, '2025-11-06'),
+(2, 'entrada', 3, 20997.00, 1, '2025-11-06');
 
 ```
 
@@ -130,7 +128,7 @@ INSERT INTO historico (
 Comandos do terminal para instalar os requisitos
 ```
 npm install
-npm install vite@latest
+npm install vite@v4
 python -m venv venv
 .\venv\Scripts\Activate
 pip install -r requirements.txt
@@ -145,3 +143,11 @@ Abrir outro terminal sem fechar o anterior e rodar o comando:
 ```
 npm run dev
 ```
+
+# Ferramentas utilizadas
+- HTML, CSS, JavaScript e React (Front-ent)
+- Python e Flask (Back-end)
+- SQL e PostgreSQL (banco de dados)
+
+#  Casos de teste
+Teste manual com inserção de dados, edição e exclusão pelos formulários na aplicação
