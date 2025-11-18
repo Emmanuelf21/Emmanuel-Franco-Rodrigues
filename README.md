@@ -1,36 +1,30 @@
 # Requisitos funcionais
 
 ## Usuário
-Requisito 001
-Login
+Requisito 001 - Login<br>
 Usuário precisa conseguir logar no sistema, a partir de um usuário e senha
 
 
 ## Produto
-Requisito 003
-Cadastro de produto
+Requisito 003 - Cadastro de produto<br>
 O sistema deve permitir cadastrar os novos produtos adquiridos pela empresa.
 
-Requisito 004
-Visualizar produto
+Requisito 004 - Visualizar produto<br>
 O sistema deve permitir visualizar todos os produtos que estiverem cadastrados, assim como a quantidade disponível em estoque.
 
 Requisito 005
-Gerenciar Produto
+Gerenciar Produto<br>
 O sistema deve permitir adicionar ou remover a quantidade de produtos cadastrados no estoque
 
-Requisito 006
-Controle de Estoque (Mínimo)
+Requisito 006 - Controle de Estoque (Mínimo)
 O sistema deve permitir cadastrar uma quantidade mínima de produtos
 
-Requisito 007
-Alerta de nível de estoque
+Requisito 007 - Alerta de nível de estoque<br>
 O sistema deve exibir um aviso para o usuário, informando quando o estoque do produto estiver chegando a um nível crítico, definido de acordo com o produto em questão
 
 ## Administrador
-Requisito 008
-Histórico de movimentações
-O sistema deve permitir verificar o histórico de movimentações realizadas dentro do sistema, exibindo todas as transações realizadas (cadastro de produtos, adição de estoque, remoção de estoque).
+Requisito 008 - Histórico de movimentações<br>
+O sistema deve permitir verificar o histórico de movimentações realizadas dentro do sistema, exibindo todas as transações realizadas (cadastro de produtos, adição de estoque, remoção de estoque).<br>
 O histórico deve conter qual produto foi alterado, qual foi o usuário que fez a alteração, a data da alteração e a quantidade de produtos que foi alterada.
 
 # Conectar ao banco criado antes de criar as tabelas:
@@ -56,15 +50,6 @@ CREATE TABLE login (
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(100) NOT NULL,
 	nome VARCHAR(100) NOT NULL
-);
-```
--- Tabela de Cliente
-```
-CREATE TABLE cliente (
-    id_cliente SERIAL PRIMARY KEY,
-    email VARCHAR(100) NOT NULL,
-    telefone VARCHAR(11),
-    nome VARCHAR(100)
 );
 ```
 
@@ -98,6 +83,7 @@ CREATE TABLE historico (
     data_movimentacao DATE NOT NULL
 );
 ```
+
 ## Inserindo os dados nas tabelas
 ```
 insert into login(email, senha, nome)
@@ -150,4 +136,5 @@ npm run dev
 - SQL e PostgreSQL (banco de dados)
 
 #  Casos de teste
-Teste manual com inserção de dados, edição e exclusão pelos formulários na aplicação
+ - Teste manual com inserção de dados, edição e exclusão pelos formulários na aplicação
+ - Teste manual do login de usuário
