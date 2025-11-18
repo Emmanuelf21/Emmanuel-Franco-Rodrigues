@@ -22,7 +22,7 @@ O sistema deve permitir cadastrar uma quantidade mínima de produtos
 Requisito 007 - Alerta de nível de estoque<br>
 O sistema deve exibir um aviso para o usuário, informando quando o estoque do produto estiver chegando a um nível crítico, definido de acordo com o produto em questão
 
-## Administrador
+## Movimentação/Histórico
 Requisito 008 - Histórico de movimentações<br>
 O sistema deve permitir verificar o histórico de movimentações realizadas dentro do sistema, exibindo todas as transações realizadas (cadastro de produtos, adição de estoque, remoção de estoque).<br>
 O histórico deve conter qual produto foi alterado, qual foi o usuário que fez a alteração, a data da alteração e a quantidade de produtos que foi alterada.
